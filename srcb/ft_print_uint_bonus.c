@@ -19,18 +19,16 @@ int	ft_print_uint(va_list args, t_flags *flags)
 	unsigned int	n;
 	char			*str;
 	int				count;
+	int				check;
 
+	check = 0;
 	count = 0;
 	n = va_arg(args, unsigned int);
 	str = ft_ulltoa((unsigned long long)n);
 	if (!str)
 		return (-1);
 	len = ft_strlen(str);
-	if (!flags->minus)
-		count += ft_apply_zero_padding(len + count, flags);
-	count += write(1, str, len);
-	if (flags->minus)
-		count += ft_apply_zero_padding(len, flags);
-	free(str);
-	return (count);
+	if (ft_call_padding(flags, len, &count, str) == -1)
+		return (free(str), -1);
+	return (free(str), count);
 }

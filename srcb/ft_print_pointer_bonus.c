@@ -20,9 +20,10 @@ int	ft_print_pointer(va_list args, t_flags *flags)
 	char	*join;
 	int		count;
 
+	count = 0;
 	ptr = va_arg(args, void *);
 	if (!ptr)
-		return (write(1, "(nil)", 5));
+		return (write(1, "0x0", 3));
 	s2 = ft_itoa_base((unsigned long long)ptr, 16, 0);
 	if (!s2)
 		return (-1);
@@ -36,7 +37,5 @@ int	ft_print_pointer(va_list args, t_flags *flags)
 	if (!flags->join)
 		return (free(join), free(s2), -1);
 	count = ft_print_string(args, flags);
-	free(join);
-	free(s2);
-	return (count);
+	return (free(join), free(s2), count);
 }

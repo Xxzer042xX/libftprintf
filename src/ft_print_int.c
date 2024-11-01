@@ -92,39 +92,8 @@ int	ft_print_int(va_list args, t_flags *flags)
 		return (-1);
 	len = ft_strlen(str);
 	if (print_sign(n, flags, &count) == -1)
-		return (-1);
+		return (free(str), -1);
 	if (ft_process_padding(flags, str, len, &count) == -1)
-		return (-1);
+		return (free(str), -1);
 	return (free(str), count);
 }
-
-/*
-int	ft_print_int(va_list args, t_flags *flags)
-{
-	int		n;
-	char	*str;
-	int		len;
-	int		count;
-
-	count = 0;
-	n = va_arg(args, int);
-	if (n < 0 && (flags->zero || flags->dot) && n != -2147483648)
-	{
-		n *= -1;
-		count += write(1, "-", 1);
-	}
-	str = ft_itoa(n);
-	if (!str)
-		return (-1);
-	len = ft_strlen(str);
-	count += print_sign(n, flags);
-	if (!flags->minus && !flags->dot)
-		count += ft_apply_zero_padding(len + count, flags);
-	else if (flags->dot)
-		count += ft_apply_zero_padding(len, flags);
-	count += write(1, str, len);
-	if (flags->minus)
-		count += ft_apply_zero_padding(len, flags);
-	return (free(str), count);
-}
-*/

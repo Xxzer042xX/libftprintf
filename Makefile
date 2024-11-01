@@ -25,8 +25,7 @@ CFILES = $(SRCDIR)/ft_dispatch_format.c \
 		 $(SRCDIR)/ft_set_flags.c \
 	 	 $(SRCDIR)/ft_parse_number.c \
 		 $(SRCDIR)/ft_print_with_precision.c \
-
-
+		 $(SRCDIR)/ft_call_padding.c \
 
 BONUSFILES = $(BONUSDIR)/ft_dispatch_format_bonus.c \
 			 $(BONUSDIR)/ft_parsing_bonus.c \
@@ -43,7 +42,7 @@ BONUSFILES = $(BONUSDIR)/ft_dispatch_format_bonus.c \
 			 $(BONUSDIR)/ft_set_flags_bonus.c \
 			 $(BONUSDIR)/ft_parse_number_bonus.c \
 			 $(BONUSDIR)/ft_print_with_precision_bonus.c \
-
+			 $(BONUSDIR)/ft_call_padding_bonus.c \
 
 OFILES = $(CFILES:.c=.o)
 BONUS_OFILES = $(BONUSFILES:.c=.o)

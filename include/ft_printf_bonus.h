@@ -47,6 +47,6 @@ void	ft_cleanup_flags(t_flags *flags);
 int		ft_apply_zero_padding(int printed_len, t_flags *flags);
 void	ft_parse_number(const char **format, t_flags *flags);
 void	ft_set_flag(const char **format, t_flags *flags);
-
+int		ft_call_padding(t_flags *flags, int len, int *count, char *str);
 
 #endif
